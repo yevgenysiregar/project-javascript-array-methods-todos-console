@@ -1,30 +1,16 @@
 const todos = ["Do morning run", "Eat lunch outside", "Go Home"];
 
-const showTodos = function(data) {
-  for (let index = 0; index < data.length; index++) {
-    const item = data[index];
-    console.log(`[${index + 1}] ${item}`);
-  }
-};
-showTodos(todos);
+todos.map(function(showTodos, index) {
+  console.log(`${index + 1}. ${showTodos}`);
+});
 
 const routine = ["Do morning run", "Eat lunch outside", "Go Home"];
 
-const searchRoutine = function(details, textToSearch) {
-  let newTodos = [];
-  for (let index = 0; index < details.length; index++) {
-    const unit = details[index];
-    const lowerCasedUnit = unit.toLowerCase();
-    const lowerCasedText = textToSearch.toLowerCase();
-    if (lowerCasedUnit.includes(lowerCasedText)) {
-      newTodos.push(unit);
-    }
-  }
-  return newTodos;
-};
-const foundTodos = searchRoutine(routine, "Eat");
-console.log(foundTodos);
-
+console.log(
+  routine.filter(function(searchRoutine) {
+    return searchRoutine.length > 7;
+  })
+);
 const myTodos = [
   {
     id: 1,
@@ -46,35 +32,51 @@ const myTodos = [
   }
 ];
 
-const showMyTodos = function(info) {
-  for (let index = 0; index < info.length; index++) {
-    const piece = info[index];
+// const showMyTodos = function(info) {
+//   for (let index = 0; index < info.length; index++) {
+//     const piece = info[index];
 
-    let infoString = ``;
+//     let infoString = ``;
 
-    infoString += piece.completed ? `☑ ` : `☐ `;
-    infoString += `${piece.text}`;
-    infoString += piece.favorite ? ` ★` : ``;
+//     infoString += piece.completed ? `☑ ` : `☐ `;
+//     infoString += `${piece.text}`;
+//     infoString += piece.favorite ? ` ★` : ``;
 
-    console.log(infoString);
-  }
-};
-showMyTodos(myTodos);
+//     console.log(infoString);
+//   }
+// };
+// showMyTodos(myTodos);
 
-const searchTodos = function(facts, searchText) {
-  let newSearch = [];
+myTodos.map(function(todosData) {
+  const info = todosData;
+  let infoString = ``;
+  infoString += info.completed ? `☑ ` : `☐ `;
+  infoString += `${info.text}`;
+  infoString += info.favorite ? ` ★` : ``;
 
-  for (let index = 0; index < facts.length; index++) {
-    const thing = facts[index];
+  console.log(infoString);
+});
 
-    const lowerCaseThing = thing.text.toLowerCase();
-    const lowerCaseSearchText = searchText.toLowerCase();
+// const searchTodos = function(facts, searchText) {
+//   let newSearch = [];
 
-    if (lowerCaseThing.includes(lowerCaseSearchText)) {
-      newSearch.push(thing);
-    }
-  }
-  return newSearch;
-};
-const foundMyTodos = searchTodos(myTodos, "Go");
-console.log(foundMyTodos);
+//   for (let index = 0; index < facts.length; index++) {
+//     const thing = facts[index];
+
+//     const lowerCaseThing = thing.text.toLowerCase();
+//     const lowerCaseSearchText = searchText.toLowerCase();
+
+//     if (lowerCaseThing.includes(lowerCaseSearchText)) {
+//       newSearch.push(thing);
+//     }
+//   }
+//   return newSearch;
+// };
+// const foundMyTodos = searchTodos(myTodos, "Go");
+// console.log(foundMyTodos);
+
+console.log(
+  myTodos.find(function(searchTodos) {
+    return searchTodos.id === 2;
+  })
+);
