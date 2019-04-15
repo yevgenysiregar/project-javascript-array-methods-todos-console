@@ -1,6 +1,6 @@
 # Project JavaScript Array Methods ToDos Console
 
-This is my Project JavaScript ToDos Console
+This is my Project JavaScript Array Methods ToDos Console
 
 ## What I Learn
 
